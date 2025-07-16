@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h2>Customer Segmentation Dashboard</h2>
+
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <br><br>
+        <button type="submit">Upload & Predict Segment</button>
+    </form>
+
+    {% if table %}
+    <h2>Prediction Results</h2>
+    <div class="results">
+        {{ table|safe }}
+    </div>
+    {% endif %}
+</body>
+
+</html>
